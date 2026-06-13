@@ -1,69 +1,90 @@
-# codigo numero 1:
+import tkinter as tk
+from tkinter import messagebox
 
-def main():
+
+def calcular():
     # Primer bloque try
     try:
-        print("Ingresando al primer try")
-        cociente = 10000 / 0  # Se lanza una excepción
-        print("Después de la división")  # Esta instrucción nunca será ejecutada
+        messagebox.showinfo("Try 1", "Ingresando al primer try")
+
+        numerador = float(txt_numerador.get())
+        denominador = float(txt_denominador.get())
+
+        cociente = numerador / denominador
+
+        messagebox.showinfo(
+            "Resultado",
+            f"Después de la división\nCociente = {cociente}"
+        )
+
+        lbl_resultado.config(text=f"Cociente: {cociente}")
+
     except ZeroDivisionError:
-        print("División por cero")  # Se imprime en pantalla este mensaje
+        messagebox.showerror("Except 1", "División por cero")
+        lbl_resultado.config(text="Cociente: Error")
+
     finally:
-        # La sentencia finally siempre se ejecuta, ocurra o no una excepción
-        print("Ingresando al primer finally")
+        messagebox.showinfo("Finally 1", "Ingresando al primer finally")
 
     # Segundo bloque try
     try:
-        print("Ingresando al segundo try")
+        messagebox.showinfo("Try 2", "Ingresando al segundo try")
+
         objeto = None
-        objeto.toString()  # Se lanza una excepción
-        # Esta instrucción nunca será ejecutada porque se lanzó una excepción
-        print("Imprimiendo objeto")
+
+        # Genera una excepción similar al ejemplo
+        objeto.toString()
+
+        messagebox.showinfo("Mensaje", "Imprimiendo objeto")
+
     except ZeroDivisionError:
-        # La excepción lanzada no es de este tipo
-        print("División por cero")
+        messagebox.showerror("Except 2", "División por cero")
+
     except Exception:
-        # Se captura la excepción
-        print("Ocurrió una excepción")  # Se imprime en pantalla este mensaje
-    finally:
-        # La sentencia finally siempre se ejecuta, ocurra o no una excepción
-        print("Ingresando al segundo finally")
-
-
-if __name__ == "__main__":
-    main()
-
-# codigo numero 2:
-
-def main():
-    try:
-        texto = "Programación"
-
-        caracter = texto[14]  # Índice fuera de rango
-
-        print(caracter)
-
-    except IndexError:
-        print("Índice de string por fuera del límite")
-
-
-if __name__ == "__main__":
-    main()
-
-# codigo numero 3:
-
-def main():
-    try:
-        numero = int("Número")  # Conversión inválida
-
-        print(numero)
-
-    except ValueError:
-        print("Excepción de formato de número")
+        messagebox.showwarning("Except 2", "Ocurrió una excepción")
 
     finally:
-        print("Ingresando al finally")
+        messagebox.showinfo("Finally 2", "Ingresando al segundo finally")
 
 
-if __name__ == "__main__":
-    main()
+def limpiar():
+    txt_numerador.delete(0, tk.END)
+    txt_denominador.delete(0, tk.END)
+    lbl_resultado.config(text="Cociente:")
+    txt_numerador.focus()
+
+
+# Ventana principal
+ventana = tk.Tk()
+ventana.title("Try - Except - Finally")
+ventana.geometry("350x250")
+
+# Numerador
+tk.Label(ventana, text="Numerador").pack(pady=5)
+txt_numerador = tk.Entry(ventana)
+txt_numerador.pack()
+
+# Denominador
+tk.Label(ventana, text="Denominador").pack(pady=5)
+txt_denominador = tk.Entry(ventana)
+txt_denominador.pack()
+
+# Botones
+frame = tk.Frame(ventana)
+frame.pack(pady=15)
+
+btn_calcular = tk.Button(frame, text="Calcular", command=calcular)
+btn_calcular.grid(row=0, column=0, padx=5)
+
+btn_limpiar = tk.Button(frame, text="Limpiar", command=limpiar)
+btn_limpiar.grid(row=0, column=1, padx=5)
+
+# Resultado
+lbl_resultado = tk.Label(
+    ventana,
+    text="Cociente:",
+    font=("Arial", 12, "bold")
+)
+lbl_resultado.pack(pady=10)
+
+ventana.mainloop()
