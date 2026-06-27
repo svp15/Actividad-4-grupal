@@ -3,7 +3,6 @@ from tkinter import messagebox
 
 
 def calcular():
-    # Primer bloque try
     try:
         messagebox.showinfo("Try 1", "Ingresando al primer try")
 
@@ -26,13 +25,11 @@ def calcular():
     finally:
         messagebox.showinfo("Finally 1", "Ingresando al primer finally")
 
-    # Segundo bloque try
     try:
         messagebox.showinfo("Try 2", "Ingresando al segundo try")
 
         objeto = None
 
-        # Genera una excepción similar al ejemplo
         objeto.toString()
 
         messagebox.showinfo("Mensaje", "Imprimiendo objeto")
@@ -54,22 +51,18 @@ def limpiar():
     txt_numerador.focus()
 
 
-# Ventana principal
 ventana = tk.Tk()
 ventana.title("Try - Except - Finally")
 ventana.geometry("350x250")
 
-# Numerador
 tk.Label(ventana, text="Numerador").pack(pady=5)
 txt_numerador = tk.Entry(ventana)
 txt_numerador.pack()
 
-# Denominador
 tk.Label(ventana, text="Denominador").pack(pady=5)
 txt_denominador = tk.Entry(ventana)
 txt_denominador.pack()
 
-# Botones
 frame = tk.Frame(ventana)
 frame.pack(pady=15)
 
@@ -79,7 +72,6 @@ btn_calcular.grid(row=0, column=0, padx=5)
 btn_limpiar = tk.Button(frame, text="Limpiar", command=limpiar)
 btn_limpiar.grid(row=0, column=1, padx=5)
 
-# Resultado
 lbl_resultado = tk.Label(
     ventana,
     text="Cociente:",
