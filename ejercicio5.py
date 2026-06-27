@@ -3,10 +3,9 @@ from tkinter import messagebox
 
 def leer_archivo():
     try:
-        with open("prueba.txt", "rb") as archivo:  # Lectura en flujo de bytes
+        with open("prueba.txt", "rb") as archivo:
             contenido = archivo.read()
 
-        # Convertir bytes a texto
         texto = contenido.decode("utf-8")
 
         area_texto.delete("1.0", tk.END)
@@ -17,7 +16,6 @@ def leer_archivo():
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
-# Ventana principal
 ventana = tk.Tk()
 ventana.title("Leer Archivo")
 
