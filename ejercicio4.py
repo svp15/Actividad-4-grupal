@@ -1,20 +1,14 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# =========================
-# EXCEPCIONES PERSONALIZADAS
-# =========================
 
 class EquipoLlenoException(Exception):
     pass
 
+
 class DatoInvalidoException(Exception):
     pass
 
-
-# =========================
-# CLASE PROGRAMADOR
-# =========================
 
 class Programador:
 
@@ -38,10 +32,6 @@ class Programador:
                 f"{campo} debe contener solo letras."
             )
 
-
-# =========================
-# CLASE EQUIPO
-# =========================
 
 class EquipoMaratonProgramacion:
 
@@ -87,10 +77,6 @@ class EquipoMaratonProgramacion:
         return texto
 
 
-# =========================
-# INTERFAZ TKINTER
-# =========================
-
 class Ventana:
 
     def __init__(self, root):
@@ -99,8 +85,6 @@ class Ventana:
         self.root.title("Maratón de Programación")
 
         self.equipo = None
-
-        # DATOS DEL EQUIPO
 
         tk.Label(root, text="Nombre del equipo").grid(row=0, column=0)
         self.txt_equipo = tk.Entry(root)
@@ -123,8 +107,6 @@ class Ventana:
             text="Crear Equipo",
             command=self.crear_equipo
         ).grid(row=4, column=0, columnspan=2, pady=5)
-
-        # DATOS DEL PROGRAMADOR
 
         tk.Label(root, text="Nombre").grid(row=5, column=0)
         self.txt_nombre = tk.Entry(root)
@@ -226,10 +208,6 @@ class Ventana:
             str(self.equipo)
         )
 
-
-# =========================
-# MAIN
-# =========================
 
 if __name__ == "__main__":
 
