@@ -91,13 +91,11 @@ def limpiar():
     txt_valor.focus()
 
 
-# Ventana principal
 ventana = tk.Tk()
 ventana.title("Logaritmo y Raíz Cuadrada")
 ventana.geometry("400x250")
 ventana.resizable(False, False)
 
-# Entrada
 tk.Label(
     ventana,
     text="Valor numérico:"
@@ -109,7 +107,6 @@ txt_valor = tk.Entry(
 )
 txt_valor.pack()
 
-# Botones
 frame_botones = tk.Frame(ventana)
 frame_botones.pack(pady=15)
 
@@ -129,7 +126,6 @@ btn_limpiar = tk.Button(
 )
 btn_limpiar.grid(row=0, column=1, padx=5)
 
-# Resultados
 lbl_logaritmo = tk.Label(
     ventana,
     text="Logaritmo neperiano:"
