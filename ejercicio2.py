@@ -3,9 +3,6 @@ from tkinter import messagebox
 
 
 class Vendedor:
-    """
-    Esta clase modela un vendedor con nombre, apellidos y edad.
-    """
 
     def __init__(self, nombre, apellidos):
         self.nombre = nombre
@@ -48,7 +45,6 @@ def calcular():
                 str(e)
             )
 
-        # Mostrar siempre los datos
         messagebox.showinfo(
             "Nombre",
             f"Nombre del vendedor = {nombre}"
@@ -78,13 +74,11 @@ def limpiar():
     txt_nombre.focus()
 
 
-# Ventana principal
 ventana = tk.Tk()
 ventana.title("Registro de Vendedor")
 ventana.geometry("350x250")
 ventana.resizable(False, False)
 
-# Nombre
 tk.Label(
     ventana,
     text="Nombre del vendedor:"
@@ -93,7 +87,6 @@ tk.Label(
 txt_nombre = tk.Entry(ventana, width=30)
 txt_nombre.pack()
 
-# Apellidos
 tk.Label(
     ventana,
     text="Apellidos del vendedor:"
@@ -102,7 +95,6 @@ tk.Label(
 txt_apellidos = tk.Entry(ventana, width=30)
 txt_apellidos.pack()
 
-# Edad
 tk.Label(
     ventana,
     text="Edad del vendedor:"
@@ -111,7 +103,6 @@ tk.Label(
 txt_edad = tk.Entry(ventana, width=30)
 txt_edad.pack()
 
-# Botones
 frame_botones = tk.Frame(ventana)
 frame_botones.pack(pady=15)
 
